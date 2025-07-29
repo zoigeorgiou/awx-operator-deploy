@@ -1,0 +1,10 @@
+{{- if .Values.AWX.enabled }}
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: {{ .Values.AWX.name }}
+  namespace: awx
+spec:
+  service_type: {{ .Values.AWX.spec.service_type }}
+  admin_user: {{ .Values.AWX.spec.admin_user }}
+{{- end }}
