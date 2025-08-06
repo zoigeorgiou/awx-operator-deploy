@@ -8,11 +8,15 @@ spec:
   source:
     repoURL: https://github.com/zoigeorgiou/awx-operator-deploy.git
     targetRevision: main
-    path: .  # root of your repo, since that's where Chart.yaml is
+    path: .
     helm:
       values: |
         AWX:
-          enabled: false
+          enabled: true
+          name: awx
+          spec:
+            admin_user: admin
+            service_type: ClusterIP
         rbac:
           create: true
   destination:
@@ -24,4 +28,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-
