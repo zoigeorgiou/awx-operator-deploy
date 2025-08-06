@@ -10,15 +10,8 @@ spec:
     targetRevision: main
     path: .
     helm:
-      values: |
-        AWX:
-          enabled: true
-          name: awx
-          spec:
-            admin_user: admin
-            service_type: ClusterIP
-        rbac:
-          create: true
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: awx
